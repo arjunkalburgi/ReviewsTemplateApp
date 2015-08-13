@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Review.Models.Item>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="img/reviews-icon.png" alt="" style="margin: auto;" >
+            </div>
+            <!--<div class="col-lg-12 text-center">
+                <h2>Items</h2>
+                <hr class="star-light">
+            </div>-->
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <div class="btn btn-lg btn-outline">
+                    @Html.ActionLink("Create New", "Create")
+                </div>
+                <!--<a href="#" class="btn btn-lg btn-outline">
+                    <i class="fa fa-download"></i> View Items
+                </a>-->
+                <br />
+                <br />
+                <br/>
+                @using (Html.BeginForm())
+                {
+                    <p>
+                        Find by Title: @Html.TextBox("SearchString")<br/>
+                        <input type="submit"  class="btn btn-lg btn-outline" value="Search" />
+                    </p>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--<p>
+    Html.ActionLink("Create New", "Create")
+</p>
+
+using (Html.BeginForm())
+{
+    <p>
+        Find by Title: Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+}-->
+
+<table class="table table-hover">
+    <tr>
+        <th>
+            <!--Html.DisplayNameFor(model => model.Title)-->
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.TitleSortParm })
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
+            @Html.ActionLink("Review", "create", "itemreviews") 
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,42 @@
+﻿@model Review.Models.Itemreview
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Itemreview</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Item.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WrittenReview)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WrittenReview)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Grade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Grade)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ItemreviewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

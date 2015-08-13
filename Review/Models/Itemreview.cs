@@ -1,0 +1,26 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
+
+namespace Review.Models
+{
+    public enum Grade
+    {
+        A, B, C, D, F
+    }
+    public class Itemreview
+    {
+        [Key]
+        public int ItemreviewID { get; set; }
+
+        public int ItemID { get; set; }
+        public string WrittenReview { get; set; }
+
+        [DisplayFormat(NullDisplayText = "No grade")]
+        public Grade? Grade { get; set; }
+
+        public virtual Item Item { get; set; }
+    }
+}
